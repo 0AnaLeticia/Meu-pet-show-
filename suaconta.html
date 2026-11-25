@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Conta - Pet Show</title>
+
+  <!-- 1. Estilo geral (cabeçalho e rodapé) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- 2. Estilo exclusivo da página de Login e Cadastro -->
+</head>
+<body>
+
+  <!-- Cabeçalho padrão -->
+  <header>
+    <img src="img.png1.png" width="180" alt="Logo Pet Show">
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="banhoetosa.html">Banho e Tosa</a></li>
+        <li><a href="veterinario.html">Veterinário</a></li>
+        <li><a href="index.html#produtos">Produtos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <a href="suaconta.html" class="btn-agendar">Minha Conta</a>
+  </header>
+
+  <!-- ================= ÁREA DE LOGIN E CADASTRO ================= -->
+  <main class="conta-page">
+    <div class="conta-card">
+
+      <!-- Abas para alternar entre Entrar e Cadastrar -->
+      <div class="conta-abas">
+        <button type="button" class="aba-btn ativa" id="btn-login" onclick="mostrarAba('login')">
+          🐾 Já tenho conta
+        </button>
+        <button type="button" class="aba-btn" id="btn-cadastro" onclick="mostrarAba('cadastro')">
+          💖 Quero me cadastrar
+        </button>
+      </div>
+
+      <!-- FORMULÁRIO 1: ENTRAR NA CONTA -->
+      <form id="form-login" class="conta-form">
+        <h1>Bem-vindo de volta ao Pet Show!</h1>
+        <p class="conta-subtitulo">Entre para acompanhar agendamentos e pedidos do seu pet.</p>
+
+        <div class="campo-grupo">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="login-senha">Senha</label>
+          <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="conta-opcoes">
+          <label class="lembrar">
+            <input type="checkbox"> Lembrar de mim
+          </label>
+          <a href="#" class="esqueci-senha">Esqueci minha senha</a>
+        </div>
+
+        <button type="submit" class="btn-enviar">Entrar na Conta</button>
+      </form>
+
+      <!-- FORMULÁRIO 2: CRIAR CADASTRO (Começa oculto) -->
+      <form id="form-cadastro" class="conta-form oculto">
+        <h1>Crie sua conta no Pet Show</h1>
+        <p class="conta-subtitulo">Cadastre você e seu melhor amigo para agendar com facilidade.</p>
+
+        <div class="campo-grupo">
+          <label for="cad-nome">Nome completo do tutor</label>
+          <input type="text" id="cad-nome" placeholder="Ex: Maria Silva" required>
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo-grupo">
+            <label for="cad-whatsapp">WhatsApp</label>
+            <input type="tel" id="cad-whatsapp" placeholder="(31) 99999-9999" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="cad-pet">Nome do Pet</label>
+            <input type="text" id="cad-pet" placeholder="Ex: Thor, Mel..." required>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="cad-especie">Seu pet é:</label>
+          <select id="cad-especie">
+            <option value="cachorro">🐶 Cachorro</option>
+            <option value="gato">🐱 Gato</option>
+            <option value="ave">🦜 Ave</option>
+            <option value="outro">🐾 Outro bichinho</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="cad-email">E-mail</label>
+          <input type="email" id="cad-email" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="cad-senha">Crie uma senha</label>
+          <input type="password" id="cad-senha" placeholder="Mínimo 6 caracteres" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn-enviar">Finalizar Cadastro</button>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div class="rodape-esquerda">
+        <span>💖 Cuidado &amp; Dedicação</span>
+      </div>
+
+      <div class="rodape-direita">
+        <a href="sobre.html">Sobre</a>
+        <a href="https://wa.me" target="_blank">Entrar em Contato</a>
+        <p>&copy; 2026 Pet Show. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Pequeno script para trocar entre a aba de Login e Cadastro -->
+  <script>
+    function mostrarAba(tipo) {
+      const formLogin = document.getElementById('form-login');
+      const formCadastro = document.getElementById('form-cadastro');
+      const btnLogin = document.getElementById('btn-login');
+      const btnCadastro = document.getElementById('btn-cadastro');
+
+      if (tipo === 'login') {
+        formLogin.classList.remove('oculto');
+        formCadastro.classList.add('oculto');
+        btnLogin.classList.add('ativa');
+        btnCadastro.classList.remove('ativa');
+      } else {
+        formLogin.classList.add('oculto');
+        formCadastro.classList.remove('oculto');
+        btnLogin.classList.remove('ativa');
+        btnCadastro.classList.add('ativa');
+      }
+    }
+  </script>
+
+</body>
+</html>
