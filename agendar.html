@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Horário - Pet Show</title>
+
+  <!-- Estilo geral (cabeçalho, formulário e rodapé) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho padrão -->
+  <header>
+    <img src="img.png1.png" width="180" alt="Logo Pet Show">
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="banhoetosa.html">Banho e Tosa</a></li>
+        <li><a href="veterinario.html">Veterinário</a></li>
+        <li><a href="suaconta.html">Sua Conta</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <a href="suaconta.html" class="btn-agendar">Minha Conta</a>
+  </header>
+
+  <!-- ================= AGENDAMENTO ================= -->
+  <main class="agendar">
+    <h1>📅 Agendar Horário</h1>
+    <p id="ag-saudacao"></p>
+    <p>Escolha o serviço, o dia e o horário e confirme o agendamento.</p>
+
+    <div class="agendar-form">
+      <label>Seu nome
+        <input type="text" id="ag-nome" placeholder="Seu nome">
+      </label>
+
+      <label>Seu telefone
+        <input type="tel" id="ag-tel" placeholder="(00) 00000-0000">
+      </label>
+
+      <div class="agendar-duplo">
+        <label>Nome do pet
+          <input type="text" id="ag-pet" placeholder="Nome do pet">
+        </label>
+        <label>Tipo de pet
+          <select id="ag-tipo">
+            <option value="Cachorro">Cachorro</option>
+            <option value="Gato">Gato</option>
+            <option value="Ave">Ave</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Serviço
+        <select id="ag-servico" onchange="atualizarServico()">
+          <option value="Banho e Tosa">Banho e Tosa</option>
+          <option value="Consulta e Check-up" data-vet="1">Consulta e Check-up</option>
+          <option value="Vacinação" data-vet="1">Vacinação</option>
+          <option value="Exames e Vermifugação" data-vet="1">Exames e Vermifugação</option>
+        </select>
+      </label>
+
+      <!-- Só aparece quando o serviço é veterinário -->
+      <label id="ag-vet-campo" class="agendar-oculto">Veterinário
+        <select id="ag-vet"></select>
+      </label>
+
+      <div class="agendar-duplo">
+        <label>Data
+          <input type="date" id="ag-data" onchange="atualizarHorarios()">
+        </label>
+        <label>Horário
+          <select id="ag-hora"></select>
+        </label>
+      </div>
+
+      <label>Observações (opcional)
+        <textarea id="ag-obs" rows="3" placeholder="Ex.: meu pet tem medo de secador"></textarea>
+      </label>
+
+      <button type="button" class="agendar-btn" onclick="enviarAgendamento()">Confirmar agendamento</button>
+    </div>
+
+    <p id="ag-ok" class="agendar-ok" hidden></p>
+
+    <section class="agenda-lista">
+      <h2>📋 Meus agendamentos</h2>
+      <div id="ag-lista"></div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div class="rodape-esquerda">
+        <span>💖 Cuidado &amp; Dedicação</span>
+      </div>
+
+      <div class="rodape-direita">
+        <a href="sobre.html">Sobre</a>
+        <a href="https://wa.me/5531981195058?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20Pet%20Show%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank">Entrar em Contato</a>
+        <p>&copy; 2026 Pet Show. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="supabase-config.js"></script>
+  <script src="supabase.js"></script>
+  <script src="agendar.js"></script>
+</body>
+</html>
